@@ -1,0 +1,13 @@
+# Copyright \xa9 2008-2019, The AROS Development Team. All rights reserved.
+# $Id$
+
+include $(SRCDIR)/config/aros.cfg
+
+ICONS := DualPNG
+
+#MM- iconset-Reduced-wbench-icons-aros-clean : iconset-Reduced-wbench-icons-aros-debug-tests-clean
+
+#MM- iconset-Reduced-wbench-icons-aros : iconset-Reduced-wbench-icons-aros-debug-tests
+
+%build_icons mmake=iconset-Reduced-wbench-icons-aros-debug-tests icons=$(ICONS) \
+             dir=$(AROS_TESTS)/Icon

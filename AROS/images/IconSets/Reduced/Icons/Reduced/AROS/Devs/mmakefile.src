@@ -1,0 +1,16 @@
+# Copyright \xa9 2004-2019, The AROS Development Team. All rights reserved.
+# $Id$
+
+include $(SRCDIR)/config/aros.cfg
+
+STORAGEICONS := DataTypes DOSDrivers Drivers Keymaps Monitors Printers
+DEVSICONS := $(STORAGEICONS) Midi
+
+#MM- iconset-Reduced-wbench-icons-aros-clean : iconset-Reduced-wbench-icons-aros-devs-clean iconset-Reduced-wbench-icons-aros-storage-clean
+#MM- iconset-Reduced-wbench-icons-aros : iconset-Reduced-wbench-icons-aros-devs iconset-Reduced-wbench-icons-aros-storage
+
+%build_icons mmake=iconset-Reduced-wbench-icons-aros-devs icons=$(DEVSICONS) \
+             dir=$(AROS_DEVS)
+
+%build_icons mmake=iconset-Reduced-wbench-icons-aros-storage icons=$(STORAGEICONS) \
+             dir=$(AROSDIR)/Storage

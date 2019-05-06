@@ -1,0 +1,16 @@
+# Copyright \xa9 2012-2019, The AROS Development Team. All rights reserved.
+# $Id$
+
+include $(SRCDIR)/config/aros.cfg
+
+STORAGEICONS := ICD0 ICD1 IDF0 IDF1 ISO0 PC0
+DEVSICONS    := PAR PIPE PRT SER SER0 SER1
+
+#MM- iconset-Reduced-wbench-icons-aros-clean : iconset-Reduced-wbench-icons-devs-dosdrivers-clean iconset-Reduced-wbench-icons-storage-dosdrivers-clean
+#MM- iconset-Reduced-wbench-icons-aros : iconset-Reduced-wbench-icons-devs-dosdrivers iconset-Reduced-wbench-icons-storage-dosdrivers
+
+%build_icons mmake=iconset-Reduced-wbench-icons-devs-dosdrivers icons=$(DEVSICONS) \
+             dir=$(AROS_DEVS)/DOSDrivers
+
+%build_icons mmake=iconset-Reduced-wbench-icons-storage-dosdrivers icons=$(STORAGEICONS) \
+             dir=$(AROSDIR)/Storage/DOSDrivers

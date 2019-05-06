@@ -1,0 +1,16 @@
+# Copyright \xa9 2010-2019, The AROS Development Team. All rights reserved.
+# $Id$
+
+include $(SRCDIR)/config/aros.cfg
+
+STORAGEICONS := Wrapper
+DEVSICONS    := ATI IntelGMA NVidia VMWare
+
+#MM- iconset-Reduced-wbench-icons-aros-clean : iconset-Reduced-wbench-icons-devs-monitors-clean iconset-Reduced-wbench-icons-storage-monitors-clean
+#MM- iconset-Reduced-wbench-icons-aros : iconset-Reduced-wbench-icons-devs-monitors iconset-Reduced-wbench-icons-storage-monitors
+
+%build_icons mmake=iconset-Reduced-wbench-icons-devs-monitors icons=$(DEVSICONS) image=Wrapper.png \
+             dir=$(AROS_DEVS)/Monitors
+
+%build_icons mmake=iconset-Reduced-wbench-icons-storage-monitors icons=$(STORAGEICONS) image=Wrapper.png \
+             dir=$(AROSDIR)/Storage/Monitors

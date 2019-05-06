@@ -1,0 +1,25 @@
+# Copyright \xa9 2004-2019, The AROS Development Team. All rights reserved.
+# $Id$
+
+include $(SRCDIR)/config/aros.cfg
+
+BASEICONS := Developer Devs Fonts \
+         Locale Prefs System \
+         Tools Utilities
+ADDITIONALICONS := Demos \
+         Libs Storage \
+         WBStartup \
+         Rexxc
+
+#MM- iconset-Reduced-wbench-icons-clean : iconset-Reduced-wbench-icons-aros-clean iconset-Reduced-additional-icons-aros-clean
+#MM- iconset-Reduced-wbench-icons : iconset-Reduced-wbench-icons-aros
+#MM- iconset-Reduced-wbench-icons : iconset-Reduced-additional-icons-aros
+#MM iconset-Reduced-wbench-icons-aros : iconset-Reduced-wbench-icons-aros-livecd
+
+%build_icons mmake=iconset-Reduced-wbench-icons-aros icons=$(BASEICONS) dir=$(AROSDIR)
+
+%build_icons mmake=iconset-Reduced-additional-icons-aros icons=$(ADDITIONALICONS) dir=$(AROSDIR)
+
+#MM
+iconset-Reduced-wbench-icons-aros-livecd :  
+	@$(ILBMTOICON) $(SRCDIR)/$(CURDIR)/LiveCD.info.src $(SRCDIR)/$(CURDIR)/LiveCD.png $(AROSDIR)/disk.info
