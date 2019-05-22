@@ -4,7 +4,7 @@
 /* Includeheader
 
         Name:           SDI_lib.h
-        Versionstring:  $VER: SDI_lib.h 1.14 (18.02.2016)
+        Versionstring:  $VER: SDI_lib.h 1.15 (20.05.2019)
         Author:         Jens Maus
         Distribution:   PD
         Project page:   https://github.com/adtools/SDI
@@ -42,9 +42,9 @@
  1.12  01.04.14 : removed the necessity of stub functions for AmigaOS4 (Thore
                   Böckelmann)
  1.13  07.09.14 : adapted to AROS (AROS Development Team)
- 1.13  28.09.15 : removed the exclusion of C++ (Thore Böckelmann)
+ 1.13a  28.09.15 : removed the exclusion of C++ (Thore Böckelmann)
  1.14  18.02.16 : added LFUNC_NULL (Jens Maus)
-
+ 1.15  20.05.19 : merge AROS code (David Gilmore)
 */
 
 /*
@@ -140,12 +140,11 @@
 
 #if defined(__amigaos4__)
   #define LIBFUNC
-  #if !defined(__cplusplus) &&                                        \
-    (__STDC_VERSION__ >= 199901L || __GNUC__ >= 3 ||                  \
+  #if (__STDC_VERSION__ >= 199901L || __GNUC__ >= 3 ||    \
     (__GNUC__ == 2 && __GNUC_MINOR__ >= 95))
-    #define LIBPROTO(name, ret, ...)                                  \
+    #define LIBPROTO(name, ret, ...)                      \
       LIBFUNC ret LIB_##name(__VA_ARGS__)
-    #define LIBPROTOVA(name, ret, ...)                                \
+    #define LIBPROTOVA(name, ret, ...)                    \
       LIBFUNC ret VARARGS68K LIB_##name(__VA_ARGS__)
     #define LIBSTUB(name, ret, ...)
     #define CALL_LFUNC_NP(name, ...) LIB_##name(__BASE_OR_IFACE_VAR)
@@ -159,8 +158,7 @@
   #define LFUNC(name)     LIB_##name
 #elif defined(__MORPHOS__)
   #define LIBFUNC
-  #if !defined(__cplusplus) &&                                        \
-    (__STDC_VERSION__ >= 199901L || __GNUC__ >= 3 ||                  \
+  #if (__STDC_VERSION__ >= 199901L || __GNUC__ >= 3 ||                  \
     (__GNUC__ == 2 && __GNUC_MINOR__ >= 95))
     #define LIBPROTO(name, ret, ...)                                  \
       LIBFUNC ret LIBSTUB_##name(void);                               \
@@ -180,8 +178,7 @@
 #elif defined(__AROS__)
   #if defined(AROS_ABI_V1)
     #define LIBFUNC
-    #if !defined(__cplusplus) &&                                        \
-      (__STDC_VERSION__ >= 199901L || __GNUC__ >= 3 ||                  \
+    #if (__STDC_VERSION__ >= 199901L || __GNUC__ >= 3 ||                  \
       (__GNUC__ == 2 && __GNUC_MINOR__ >= 95))
       #define LIBPROTO(name, ret, ...)                                  \
         LIBFUNC ret LIB_##name(__VA_ARGS__)
@@ -195,11 +192,11 @@
     #define LFUNC_VAS(name)
     #define LFUNC_FA_(name) ,LIBSTUB_0_##name
     #define LFUNC_VA_(name)
+    #define LFUNC_NULL      ,NULL
     #define LFUNC(name)     LIBSTUB_0_##name
   #else
     #define LIBFUNC
-    #if !defined(__cplusplus) &&                                        \
-      (__STDC_VERSION__ >= 199901L || __GNUC__ >= 3 ||                  \
+    #if (__STDC_VERSION__ >= 199901L || __GNUC__ >= 3 ||                  \
       (__GNUC__ == 2 && __GNUC_MINOR__ >= 95))
       #define LIBPROTO(name, ret, ...)                                  \
         LIBFUNC ret LIB_##name(__VA_ARGS__)
@@ -213,6 +210,7 @@
     #define LFUNC_VAS(name)
     #define LFUNC_FA_(name) ,LIBSTUB_##name
     #define LFUNC_VA_(name)
+    #define LFUNC_NULL      ,NULL
     #define LFUNC(name)     LIBSTUB_##name
   #endif
 #else
