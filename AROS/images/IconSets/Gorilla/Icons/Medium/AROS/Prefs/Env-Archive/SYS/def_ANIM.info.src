@@ -1,3 +1,0 @@
-TYPE = PROJECT
-DEFAULTTOOL = SYS:Utilities/MultiView
-STACK = 40960

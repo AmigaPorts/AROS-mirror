@@ -1,5 +1,0 @@
-TYPE  = TOOL
-STACK = 8192
-TOOLTYPE = "CLASS=RadeonDriver"
-TOOLTYPE = "LIBRARY=radeon.hidd"
-TOOLTYPE = "STARTPRI=-1"

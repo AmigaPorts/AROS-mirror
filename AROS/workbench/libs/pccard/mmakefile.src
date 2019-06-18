@@ -1,9 +1,0 @@
-# $Id$
-
-include $(SRCDIR)/config/aros.cfg
-
-%build_module mmake=workbench-libs-pccard \
-    modname=pccard modtype=library \
-    files="tuple"
-
-%common

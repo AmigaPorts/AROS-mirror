@@ -1,6 +1,0 @@
-#!/bin/zsh
-# Creates AROS/linux-ppc contrib package.
-
-BUILDTARGET=linux-ppc
-
-source $SP/pkg/contrib

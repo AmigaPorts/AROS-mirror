@@ -1,6 +1,0 @@
-# $Id$
-
-include $(SRCDIR)/config/aros.cfg
-
-#MM- distfiles : distfiles-$(AROS_TARGET_ARCH)-$(AROS_TARGET_CPU)
-#MM- distfiles-quick : distfiles-quick-$(AROS_TARGET_ARCH)-$(AROS_TARGET_CPU)

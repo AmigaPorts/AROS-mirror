@@ -1,6 +1,0 @@
-# DataType file for a RIFF-WAVE Sound
-FileName=RAM:RIFF-WAVE
-DTName=RIFF-WAVE,wave
-ID=soun,wave
-Recog=#?,RIFF\?\?\?\?WAVE
-Flags=binary,y,0

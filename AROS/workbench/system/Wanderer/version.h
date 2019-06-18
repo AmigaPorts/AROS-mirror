@@ -1,7 +1,0 @@
-#define WANDERERNAME    "Wanderer"
-#define WANDERERVERS    1
-#define WANDERERREV     2
-#define WANDERERSTR     WANDERERNAME" 1.2 (20.01.2012)"
-#define WANDERERAUTH    "The AROS Dev Team"
-#define WANDERERCOPY    "© " WANDERERAUTH
-#define VERSION "$VER:  " WANDERERSTR " " WANDERERCOPY

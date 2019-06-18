@@ -1,7 +1,0 @@
-#!/bin/zsh
-# Creates AROS/linux-armhf contrib package.
-
-BUILDTARGET=linux-armhf
-BUILDTARGETDIR=linux-arm
-
-source $SP/pkg/contrib

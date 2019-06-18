@@ -1,8 +1,0 @@
-#!/bin/zsh
-# Creates darwin-x86-64 "hosted" binary packages.
-
-BUILDCPU=x86_64
-BUILDTARGET=darwin-$BUILDCPU
-BUILDEXTRAOPTS=(--with-kernel-gcc-version=4.2.1)
-
-source $SP/pkg/hosted

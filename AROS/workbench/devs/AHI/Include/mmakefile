@@ -1,6 +1,0 @@
-# $Id$
-include $(SRCDIR)/config/aros.cfg
-
-#MM
-clean :
-	-$(MAKE) -C $(GENDIR)/$(CURDIR) clean

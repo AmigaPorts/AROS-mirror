@@ -1,7 +1,0 @@
-#!/bin/zsh
-# Creates linux-ppc "hosted" binary packages.
-
-BUILDCPU=ppc
-BUILDTARGET=linux-$BUILDCPU
-
-source $SP/pkg/hosted

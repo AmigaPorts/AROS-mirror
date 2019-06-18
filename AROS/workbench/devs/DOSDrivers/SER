@@ -1,4 +1,0 @@
-Handler = port-handler
-Priority = 5
-GlobVec = -1
-Startup = 0

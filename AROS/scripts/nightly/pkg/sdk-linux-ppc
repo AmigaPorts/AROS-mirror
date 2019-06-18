@@ -1,6 +1,0 @@
-#!/bin/zsh
-# Creates AROS/linux-ppc SDK package.
-
-BUILDTARGET=linux-ppc
-
-source  $SP/pkg/sdk

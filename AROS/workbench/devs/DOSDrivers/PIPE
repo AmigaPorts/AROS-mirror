@@ -1,3 +1,0 @@
-Handler = pipe-handler
-Priority = 5
-GlobVec = -1

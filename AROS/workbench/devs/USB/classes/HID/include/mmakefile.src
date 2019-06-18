@@ -1,8 +1,0 @@
-# $Id$
-
-include $(SRCDIR)/config/aros.cfg
-
-INCLUDE_FILES := $(call WILDCARD, *.h)
-%copy_includes path=usb
-
-%common
