@@ -1,6 +1,0 @@
-# $Id$
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-#MM- ports : ports-scientific
-#MM- ports-scientific : ports-scientific-$(AROS_TARGET_CPU)
