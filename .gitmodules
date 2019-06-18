@@ -1,9 +1,9 @@
 [submodule "contrib"]
 	path = contrib
-	url = git@github.com:AmigaPorts/AROS-contrib.git
+url=https://github.com/AmigaPorts/AROS-contrib.git
 [submodule "ports"]
 	path = ports
-	url = git@github.com:AmigaPorts/AROS-ports.git
+url=https://github.com/AmigaPorts/AROS-ports.git
 [submodule "AROS"]
 	path = AROS
-	url = git@github.com:AmigaPorts/AROS-main.git
+url=https://github.com/AmigaPorts/AROS-main.git
