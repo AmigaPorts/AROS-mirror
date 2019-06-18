@@ -4,3 +4,6 @@
 [submodule "ports"]
 	path = ports
 	url = git@github.com:AmigaPorts/AROS-ports.git
+[submodule "AROS"]
+	path = AROS
+	url = git@github.com:AmigaPorts/AROS-main.git
