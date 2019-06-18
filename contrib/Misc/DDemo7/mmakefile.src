@@ -1,8 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-%build_prog mmake=contrib-ddemo7 \
-    progname=DDemo7 targetdir=$(AROS_CONTRIB)/Misc \
-    files=DDemo7
-
-

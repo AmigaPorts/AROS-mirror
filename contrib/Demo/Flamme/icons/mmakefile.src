@@ -1,8 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-DESTDIR := $(AROS_CONTRIB)/Demos/Flamme
-
-%build_icons mmake=demo-flamme-icons icons=Flamme dir=$(DESTDIR)
-
-%common

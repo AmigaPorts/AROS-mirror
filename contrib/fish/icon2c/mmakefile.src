@@ -1,6 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-%build_prog mmake=fish-icon2c \
-    progname=icon2c targetdir=$(AROS_CONTRIB)/Misc/fish \
-    files=icon2c

@@ -1,6 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-%build_prog mmake=aminet-util-arc-unlzx \
-    progname=unlzx targetdir=$(AROS_CONTRIB)/Misc/aminet/C \
-    files=unlzx

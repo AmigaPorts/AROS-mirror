@@ -1,6 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-%build_prog mmake=aminet-comm-term-amigaterm \
-    progname=amigaterm targetdir=$(AROS_CONTRIB)/Misc/aminet \
-    files=amigaterm

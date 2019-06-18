@@ -1,8 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-DESTDIR := $(AROS_CONTRIB)/Demos/Galaxy
-
-%build_icons mmake=demo-galaxy-icons icons=Galaxy dir=$(DESTDIR)
-
-%common

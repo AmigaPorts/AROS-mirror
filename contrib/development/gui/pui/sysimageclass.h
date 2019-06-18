@@ -1,5 +1,0 @@
-struct sysimagedata
-{
-	WORD		which;
-};
-

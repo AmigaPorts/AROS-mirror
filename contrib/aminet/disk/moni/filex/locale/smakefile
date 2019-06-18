@@ -1,3 +1,0 @@
-all:
-	del filexcats.lha
-	lha a FileXCats.lha Blank.ct Deutsch.ct FileX.cd Français.ct Svenska.ct Suomi.ct

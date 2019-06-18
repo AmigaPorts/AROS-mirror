@@ -1,8 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-#MM games-wumpus : includes linklibs
-
-%build_prog mmake=games-wumpus \
-    progname=wumpus targetdir=$(AROS_CONTRIB)/Games/Misc \
-    files=wumpus

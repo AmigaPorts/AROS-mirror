@@ -1,6 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-%build_prog mmake=fish-cube \
-    progname=cube targetdir=$(AROS_CONTRIB)/Misc/fish \
-    files=cube

@@ -1,6 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-%build_prog mmake=fish-memsnap \
-    progname=memsnap targetdir=$(AROS_CONTRIB)/Misc/fish \
-    files="icon memsnap menu wintext"

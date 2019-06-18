@@ -1,6 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-%build_prog mmake=fish-henon \
-    progname=henon targetdir=$(AROS_CONTRIB)/Misc/fish \
-    files=henon

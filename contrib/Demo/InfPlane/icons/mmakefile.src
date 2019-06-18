@@ -1,8 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-DESTDIR	:= $(AROS_CONTRIB)/Demos/InfPlane
-
-%build_icons mmake=demo-infplane-icons icons=InfPlane dir=$(DESTDIR)
-
-%common

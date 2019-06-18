@@ -1,8 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-%build_prog mmake=contrib-sortcopy \
-    progname=SortCopy targetdir=$(AROS_CONTRIB)/Misc \
-    files=SortCopy
-
-

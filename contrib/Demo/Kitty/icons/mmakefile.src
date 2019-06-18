@@ -1,8 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-EXEDIR := $(AROS_CONTRIB)/Demos/Kitty
-
-%build_icons mmake=demo-kitty-icons icons=Kitty dir=$(EXEDIR)
-
-%common

@@ -1,2 +1,0 @@
-#ifndef PRAGMAS_PM_PRAGMAS_H
-#define PRAGMAS_PM_PRAGMAS_H

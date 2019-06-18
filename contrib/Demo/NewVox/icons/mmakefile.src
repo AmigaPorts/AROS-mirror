@@ -1,8 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-DESTDIR := $(AROS_CONTRIB)/Demos/NewVox
-
-%build_icons mmake=demo-newvox-icons icons=NewVox dir=$(DESTDIR)
-
-%common

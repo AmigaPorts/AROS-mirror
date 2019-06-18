@@ -1,8 +1,0 @@
-XaoS 3.0
-
-To Build for AROS
------------------
-in the root AROS source dir type:
-
-    make gfx-xaos
-

@@ -1,7 +1,0 @@
-all:
-                    @execute <<
-                        pushcd /
-                        smake
-                        popcd
-                    <
-

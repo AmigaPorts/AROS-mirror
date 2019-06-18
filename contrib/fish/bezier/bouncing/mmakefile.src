@@ -1,8 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-CFLAGS := $(filter-out -Werror-implicit-function-declaration,$(CFLAGS))
-
-%build_prog mmake=fish-bezier2 \
-    progname=bezier2 targetdir=$(AROS_CONTRIB)/Misc/fish \
-    files=bezier

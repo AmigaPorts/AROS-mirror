@@ -1,9 +1,0 @@
-# Copyright © 2012, The AROS Development Team. All rights reserved.
-# $Id$
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-CATDIR := $(AROS_CONTRIB)/Utilities/Archive/Unarc/Catalogs
-
-%build_catalogs mmake=contrib-pack-unarc-catalogs \
-            name=Unarc subdir= dir=$(CATDIR)

@@ -1,6 +1,0 @@
-# Scalos filetype description
-# written 06/17/07 22:20:10
-
-DESCRIPTION "WMV Video"
-PREVIEWPLUGIN "Scalos:Plugins/Preview/video.pvplugin"
-

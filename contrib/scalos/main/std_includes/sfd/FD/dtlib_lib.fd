@@ -1,5 +1,0 @@
-##base _DtLibBase
-##bias 30
-##public
-ObtainInfoEngine(libBase)(a0)
-##end

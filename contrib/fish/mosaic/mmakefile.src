@@ -1,6 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-%build_prog mmake=fish-mosaic \
-    progname=mosaic targetdir=$(AROS_CONTRIB)/Misc/fish \
-    files=mosaic

@@ -1,5 +1,0 @@
-struct labeldata
-{
-	LONG dummy;
-};
-

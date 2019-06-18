@@ -1,4 +1,0 @@
-;                                    PAUSE
-(usleep 2000000)
-(clearscreen)
-(usleep 1000000)

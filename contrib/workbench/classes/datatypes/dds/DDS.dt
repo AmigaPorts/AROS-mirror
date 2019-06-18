@@ -1,6 +1,0 @@
-# DataType file for a RIFF-WAVE Sound
-FileName=RAM:DDS
-DTName=DDraw Surface,dds
-ID=pict,dds
-Recog=#?,DDS 
-Flags=binary,y,0

@@ -1,1 +1,0 @@
-LIBS := -larossupport -lrom

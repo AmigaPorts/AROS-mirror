@@ -1,8 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-DESTDIR := $(AROS_CONTRIB)/Demos/Metaballs
-
-%build_icons mmake=demo-metaballs-icons icons=Metaballs dir=$(DESTDIR)
-
-%common

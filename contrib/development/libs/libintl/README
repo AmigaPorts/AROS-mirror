@@ -1,4 +1,0 @@
-The sources are taken from glibc 2.14.
-
-The sources are modified. The major modification is removal of threading LIBC
-support.

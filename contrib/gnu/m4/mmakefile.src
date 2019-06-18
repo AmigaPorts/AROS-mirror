@@ -1,9 +1,0 @@
-# Copyright © 2004, The AROS Development Team. All rights reserved.
-# $Id$
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-#MM- contrib-gnu : contrib-gnu-m4
-#MM- contrib-gnu-m4 : development-m4
-
-%fetch_and_build_gnu_development package=m4 version=1.4.5

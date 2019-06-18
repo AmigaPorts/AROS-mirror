@@ -1,4 +1,0 @@
-
-cag : cag.c
-	sc cag.c
-

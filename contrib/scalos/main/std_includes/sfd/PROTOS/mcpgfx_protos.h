@@ -1,2 +1,0 @@
-#ifndef  CLIB_MCPGFX_PROTOS_H
-#define  CLIB_MCPGFX_PROTOS_H

@@ -1,3 +1,0 @@
-All AROS_BUG_FIXED should be removed. Currently if those code parts
-are activated Term just gets stuck.
-

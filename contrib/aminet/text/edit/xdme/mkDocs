@@ -1,2 +1,0 @@
-egrep -h -e "^[*][!]" Src/Key/#? Src/Menu/#? Src/Var/#? Src/Mod/#? Src/#?.c > Docs/Xdme.Addes.doc
-

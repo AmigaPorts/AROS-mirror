@@ -1,6 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-%build_prog mmake=fish-touch \
-    progname=touch targetdir=$(AROS_CONTRIB)/Misc/fish \
-    files=touch

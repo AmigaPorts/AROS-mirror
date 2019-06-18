@@ -1,9 +1,0 @@
-# Copyright 2009-2018, The AROS Development Team. All rights reserved.
-# $Id$
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-#MM- contrib-multimedia : development-libmikmod
-
-%fetch_and_build_gnu_development package=libmikmod version=3.3.10 patch=no \
-    package_repo=sf://mikmod suffixes="tar.gz" nlsflag=no

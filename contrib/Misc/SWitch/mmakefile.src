@@ -1,6 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-%build_prog mmake=contrib-switch \
-    progname=SWitch targetdir=$(AROS_CONTRIB)/Misc \
-    files=SWitch

@@ -1,8 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-DESTDIR	:= $(AROS_CONTRIB)/MultiMedia/Gfx/XaoS
-
-%build_icons mmake=gfx-xaos-icons icons=XaoS dir=$(DESTDIR)
-
-%common

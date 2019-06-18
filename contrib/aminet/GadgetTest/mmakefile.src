@@ -1,7 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-%build_prog mmake=aminet-gadgettest \
-    progname=GadgetTest targetdir=$(AROS_CONTRIB)/Misc/aminet \
-    files=GadgetTest
-

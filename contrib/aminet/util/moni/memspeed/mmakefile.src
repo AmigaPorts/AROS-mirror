@@ -1,6 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-%build_prog mmake=aminet-util-moni-memspeed \
-    progname=memspeed targetdir=$(AROS_CONTRIB)/Misc/aminet \
-    files=memspeed

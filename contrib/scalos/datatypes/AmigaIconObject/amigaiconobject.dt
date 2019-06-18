@@ -1,6 +1,0 @@
-# DataType file for Amiga Icons
-Filename=amigaiconobject
-DTName=Amiga IconObject,amigaiconobject
-ID=icon,aico
-Recog=#?.info
-Flags=Binary,n,0

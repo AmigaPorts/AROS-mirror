@@ -1,8 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-CFLAGS := $(filter-out -Werror-implicit-function-declaration,$(CFLAGS))
-
-%build_prog mmake=fish-mandel \
-    progname=mand targetdir=$(AROS_CONTRIB)/Misc/fish \
-    files="mand mand1 mand2 mand3 mand4"

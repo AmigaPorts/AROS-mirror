@@ -1,9 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-%build_prog mmake=contrib-misc-m68kemul \
-    progname=m68kemul targetdir=$(AROS_CONTRIB)/Misc/Berger \
-    files="m68kemul kernellibs addressingmodes conditioncodes" \
-    usestartup=no
-
-#MM contrib-misc-m68kemul : contrib-misc-m68kemul-copysamples

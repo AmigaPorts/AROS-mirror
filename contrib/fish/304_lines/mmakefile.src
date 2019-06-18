@@ -1,6 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-%build_prog mmake=fish-304_lines \
-    progname=304_lines targetdir=$(AROS_CONTRIB)/Misc/fish \
-    files=lines

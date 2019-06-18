@@ -1,8 +1,0 @@
-
-include $(SRCDIR)/config/aros-contrib.cfg
-
-FILES := words words_file words_list words_main words_replace words_temp
-
-%build_prog mmake=fish-lyromat \
-    progname=lyr-o-mat targetdir=$(AROS_CONTRIB)/Misc/fish \
-    files=$(FILES)
