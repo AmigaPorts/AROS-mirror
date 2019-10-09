@@ -166,26 +166,6 @@ node('master') {
 			node {			
 				buildStep('amiga-m68k', 'Mason', '2.32', '8.3.0', true, 'contrib-installerlg')
 			}
-		},
-		'Build Linux Hosted x86_64 version - GCC 9.1.0 - Binutils 2.32': {
-			node {			
-				buildStep('linux-x86_64', 'Mason', '2.32', '9.1.0', false)
-			}
-		},
-		'Build Native x86_64 version - GCC 9.1.0 - Binutils 2.32': {
-			node {			
-				buildStep('pc-x86_64', 'Mason', '2.32', '9.1.0', true, 'contrib', '--with-bootloader=grub2')
-			}
-		},
-		'Build Native x86_64-SMP version - GCC 9.1.0 - Binutils 2.32': {
-			node {			
-				buildStep('pc-x86_64', 'Mason', '2.32', '9.1.0', true, 'contrib', '--enable-target-variant=smp --with-bootloader=grub2', '-smp')
-			}
-		},
-		'Build RasPi BigEndian version - GCC 9.1.0 - Binutils 2.32': {
-			node {			
-				buildStep('raspi-armeb', 'Mason', '2.32', '9.1.0')
-			}
 		}
 	)
 }
