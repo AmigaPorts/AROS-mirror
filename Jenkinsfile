@@ -33,7 +33,7 @@ def killall_jobs() {
 	}
 	
 	if (killnums != "") {
-		slackSend color: "danger", channel: "#aros", message: "Killing task(s) ${fixed_job_name} ${killnums} in favor of #${buildnum}, ignore following failed builds for ${killnums}"
+		slackSend color: "danger", channel: "#jenkins", message: "Killing task(s) ${fixed_job_name} ${killnums} in favor of #${buildnum}, ignore following failed builds for ${killnums}"
 	}
 	echo "Done killing"
 }
@@ -108,7 +108,7 @@ def buildStep(ext, iconset = 'default', binutilsver = '2.32', gccver = '9.1.0', 
 				sh "scp -r ${env.WORKSPACE}/publishing/deploy/aros/* $DEPLOYHOST:~/public_html/downloads/nightly/aros/`date +'%Y'`/`date +'%m'`/`date +'%d'`/"
 				sh "scp ${env.WORKSPACE}/publishing/deploy/BUILDTIME $DEPLOYHOST:~/public_html/downloads/nightly/aros/"
 
-				slackSend color: "good", channel: "#aros", message: "Deploying ${fixed_job_name} #${env.BUILD_NUMBER} Target: ${ext}${sfx} GCC: ${gccver} Binutils: ${binutilsver} to web (<https://dl.amigadev.com/${deploy_url}|https://dl.amigadev.com/${deploy_url}>)"
+				slackSend color: "good", channel: "#jenkins", message: "Deploying ${fixed_job_name} #${env.BUILD_NUMBER} Target: ${ext}${sfx} GCC: ${gccver} Binutils: ${binutilsver} to web (<https://dl.amigadev.com/${deploy_url}|https://dl.amigadev.com/${deploy_url}>)"
 			} else if (env.BRANCH_NAME.equals('ABI_V1_experimental')) {
 				def deploy_url = sh (
 				    script: 'echo "nightly/aros-experimental/`date +\'%Y\'`/`date +\'%m\'`/`date +\'%d\'`/"',
@@ -121,11 +121,11 @@ def buildStep(ext, iconset = 'default', binutilsver = '2.32', gccver = '9.1.0', 
 
 				slackSend color: "good", channel: "#aros", message: "Deploying ${fixed_job_name} #${env.BUILD_NUMBER} Target: ${ext}${sfx} GCC: ${gccver} Binutils: ${binutilsver} to web (<https://dl.amigadev.com/${deploy_url}|https://dl.amigadev.com/${deploy_url}>)"
 			} else {
-				slackSend color: "good", channel: "#aros", message: "Build ${fixed_job_name} #${env.BUILD_NUMBER} Target: ${ext}${sfx} GCC: ${gccver} Binutils: ${binutilsver} successful!"
+				slackSend color: "good", channel: "#jenkins", message: "Build ${fixed_job_name} #${env.BUILD_NUMBER} Target: ${ext}${sfx} GCC: ${gccver} Binutils: ${binutilsver} successful!"
 			}
 		}
 	} catch(err) {
-		slackSend color: "danger", channel: "#aros", message: "Build Failed: ${fixed_job_name} #${env.BUILD_NUMBER} Target: ${ext}${sfx} GCC: ${gccver} (<${env.BUILD_URL}|Open>)"
+		slackSend color: "danger", channel: "#jenkins", message: "Build Failed: ${fixed_job_name} #${env.BUILD_NUMBER} Target: ${ext}${sfx} GCC: ${gccver} (<${env.BUILD_URL}|Open>)"
 		currentBuild.result = 'FAILURE'
 		notify('Build failed')
 		throw err
