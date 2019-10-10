@@ -102,9 +102,9 @@ def buildStep(ext, iconset = 'default', binutilsver = '2.32', gccver = '9.1.0', 
 				stash includes: "publishing/deploy/aros/**", name: "${ext}-${gccver}"
 				slackSend color: "good", channel: "#jenkins", message: "Build ${fixed_job_name} #${env.BUILD_NUMBER} Target: ${ext}${sfx} GCC: ${gccver} Binutils: ${binutilsver} successful!"
 
-				sh "rm -rf ${env.WORKSPACE}/*"
+				sh "rm -rf ${env.WORKSPACE}"
 			} catch(err) {
-				sh "rm -rf ${env.WORKSPACE}/*"
+				sh "rm -rf ${env.WORKSPACE}"
 				slackSend color: "danger", channel: "#jenkins", message: "Build Failed: ${fixed_job_name} #${env.BUILD_NUMBER} Target: ${ext}${sfx} GCC: ${gccver} (<${env.BUILD_URL}|Open>)"
 				currentBuild.result = 'FAILURE'
 				notify('Build failed')
