@@ -49,7 +49,7 @@ def buildStep(ext, iconset = 'default', binutilsver = '2.32', gccver = '9.1.0', 
 			echo 'Trying to build pull request'
 		}
 
-		def dockerImageRef = docker.image("amigadev/aros-build")
+		def dockerImageRef = docker.image("amigadev/docker-base")
 		dockerImageRef.pull()
 
 		dockerImageRef.inside("-u 0:0 -u root -w /tmp/work -v ${commondir}/tools-${ext}-${gccver}-${binutilsver}:/tools -v ${commondir}/externalsources-${ext}-${gccver}-${binutilsver}:/externalsources") {
