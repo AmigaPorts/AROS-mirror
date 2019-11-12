@@ -136,9 +136,9 @@ node('master') {
 				buildStep('amiga-m68k', 'Mason', '2.32', '9.1.0', true, 'contrib-installerlg')
 			}
 		},
-		'Build Amiga 68k version - GCC 8.3.0 - Binutils 2.32': {
+		'Build Linux Hosted x86_64 version - GCC 9.1.0 - Binutils 2.32': {
 			node {
-				buildStep('amiga-m68k', 'Mason', '2.32', '8.3.0', true, 'contrib-installerlg')
+				buildStep('linux-x86_64', 'Mason', '2.32', '9.1.0', false, 'contrib-installerlg')
 			}
 		}
 	)
@@ -147,7 +147,7 @@ node('master') {
 		sh "rm -rfv publishing/"
 
 		unstash "amiga-m68k-9.1.0"
-		unstash "amiga-m68k-8.3.0"
+		unstash "linux-x86_64-9.1.0"
 
 		if (env.TAG_NAME) {
 			sh "echo $TAG_NAME > publishing/deploy/STABLE"
@@ -164,7 +164,7 @@ node('master') {
 			sh "scp -r publishing/deploy/aros/* $DEPLOYHOST:~/public_html/downloads/nightly/aros/`date +'%Y'`/`date +'%m'`/`date +'%d'`/"
 			sh "scp publishing/deploy/BUILDTIME $DEPLOYHOST:~/public_html/downloads/nightly/aros/"
 
-			slackSend color: "good", channel: "#jenkins", message: "Deploying ${fixed_job_name} #${env.BUILD_NUMBER} to web (<https://dl.amigadev.com/${deploy_url}|https://dl.amigadev.com/${deploy_url}>)"
+			slackSend color: "good", channel: "#aros", message: "New ${fixed_job_name} build #${env.BUILD_NUMBER} to web (<https://dl.amigadev.com/${deploy_url}|https://dl.amigadev.com/${deploy_url}>)"
 		} else if (env.BRANCH_NAME.equals('ABI_V1_experimental')) {
 			def deploy_url = sh (
 				script: 'echo "nightly/aros-experimental/`date +\'%Y\'`/`date +\'%m\'`/`date +\'%d\'`/"',
