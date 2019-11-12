@@ -146,8 +146,17 @@ node('master') {
 	stage("Publishing") {
 		sh "rm -rfv publishing/"
 
-		unstash "amiga-m68k-9.1.0"
-		unstash "linux-x86_64-9.1.0"
+		try {
+			unstash "amiga-m68k-9.1.0"
+		} catch(err) {
+			notify('Stash not found')
+		}
+		
+		try {
+			unstash "linux-x86_64-9.1.0"
+		} catch(err) {
+			notify('Stash not found')
+		}
 
 		if (env.TAG_NAME) {
 			sh "echo $TAG_NAME > publishing/deploy/STABLE"
