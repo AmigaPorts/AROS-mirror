@@ -38,7 +38,7 @@ def killall_jobs() {
 	echo "Done killing"
 }
 
-def buildStep(ext, iconset = 'default', binutilsver = '2.32', gccver = '9.1.0', nativetarget = true, contrib = 'contrib', configureextras = '', sfx = '') {
+def buildStep(ext, iconset = 'default', binutilsver = '2.32', gccver = '9.1.0', nativetarget = true, contrib = 'contrib', configureextras = '--with-aros-prefs=classic', sfx = '') {
 	def fixed_job_name = env.JOB_NAME.replace('%2F','/')
 	def commondir = env.WORKSPACE + '/../' + env.JOB_NAME.replace('%2F','/') + '/'
 
