@@ -38,7 +38,7 @@ def killall_jobs() {
 	echo "Done killing"
 }
 
-def buildStep(ext, iconset = 'default', binutilsver = '2.32', gccver = '9.1.0', nativetarget = true, contrib = 'contrib', configureextras = '--with-aros-prefs=classic', sfx = '') {
+def buildStep(ext, iconset = 'default', binutilsver = '2.32', gccver = '9.1.0', nativetarget = true, contrib = 'contrib', configureextras = '', sfx = '') {
 	def fixed_job_name = env.JOB_NAME.replace('%2F','/')
 	def commondir = env.WORKSPACE + '/../' + env.JOB_NAME.replace('%2F','/') + '/'
 
@@ -133,7 +133,7 @@ node('master') {
 	parallel (
 		'Build Amiga 68k version - GCC 6.5.0 - Binutils 2.32': {
 			node {
-				buildStep('amiga-m68k', 'Mason', '2.32', '6.5.0', true, 'contrib-installerlg')
+				buildStep('amiga-m68k', 'Mason', '2.32', '6.5.0', true, 'contrib-installerlg', '--with-aros-prefs=classic')
 			}
 		},
 		'Build Linux Hosted x86_64 version - GCC 9.1.0 - Binutils 2.32': {
