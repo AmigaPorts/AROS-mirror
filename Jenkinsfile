@@ -131,9 +131,9 @@ node('master') {
 	def fixed_job_name = env.JOB_NAME.replace('%2F','/')
 	slackSend color: "good", channel: "#jenkins", message: "Build Started: ${fixed_job_name} #${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
 	parallel (
-		'Build Amiga 68k version - GCC 9.1.0 - Binutils 2.32': {
+		'Build Amiga 68k version - GCC 6.5.0 - Binutils 2.32': {
 			node {
-				buildStep('amiga-m68k', 'Mason', '2.32', '9.1.0', true, 'contrib-installerlg')
+				buildStep('amiga-m68k', 'Mason', '2.32', '6.5.0', true, 'contrib-installerlg')
 			}
 		},
 		'Build Linux Hosted x86_64 version - GCC 9.1.0 - Binutils 2.32': {
@@ -147,7 +147,7 @@ node('master') {
 		sh "rm -rfv publishing/"
 
 		try {
-			unstash "amiga-m68k-9.1.0"
+			unstash "amiga-m68k-6.5.0"
 		} catch(err) {
 			notify('Stash not found')
 		}
