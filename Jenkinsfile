@@ -99,7 +99,7 @@ def buildStep(ext, iconset = 'default', binutilsver = '2.32', gccver = '9.1.0', 
 						sh "rm -fvr ${env.WORKSPACE}/publishing/deploy/aros/${ext}${sfx}-${gccver}-${binutilsver}/AROS"
 					}
 				}
-				stash includes: "publishing/deploy/aros/**", name: "${ext}-${gccver}"
+				stash includes: "publishing/deploy/aros/**", name: "${ext}${sfx}-${gccver}-${binutilsver}"
 				slackSend color: "good", channel: "#jenkins", message: "Build ${fixed_job_name} #${env.BUILD_NUMBER} Target: ${ext}${sfx} GCC: ${gccver} Binutils: ${binutilsver} successful!"
 
 				sh "rm -rf ${env.WORKSPACE}/*"
@@ -136,6 +136,11 @@ node('master') {
 				buildStep('amiga-m68k', 'Mason', '2.32', '6.5.0', true, 'contrib-installerlg', '--with-aros-prefs=classic')
 			}
 		},
+		'Build Vampire version - GCC 6.5.0 - Binutils 2.32': {
+			node {
+				buildStep('amiga-m68k', 'Mason', '2.32', '6.5.0', true, 'contrib-installerlg', '--with-aros-prefs=classic --with-cpu=68040', '-vampire')
+			}
+		},
 		'Build Linux Hosted x86_64 version - GCC 9.1.0 - Binutils 2.32': {
 			node {
 				buildStep('linux-x86_64', 'Mason', '2.32', '9.1.0', false, 'contrib-installerlg')
@@ -147,13 +152,20 @@ node('master') {
 		sh "rm -rfv publishing/"
 
 		try {
-			unstash "amiga-m68k-6.5.0"
+			// ${ext}${sfx}-${gccver}-${binutilsver}
+			unstash "amiga-m68k-6.5.0-2.32"
 		} catch(err) {
 			notify('Stash not found')
 		}
 		
 		try {
-			unstash "linux-x86_64-9.1.0"
+			unstash "amiga-m68k-vampire-6.5.0-2.32"
+		} catch(err) {
+			notify('Stash not found')
+		}
+		
+		try {
+			unstash "linux-x86_64-9.1.0-2.32"
 		} catch(err) {
 			notify('Stash not found')
 		}
