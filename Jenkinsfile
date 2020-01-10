@@ -106,6 +106,7 @@ def buildStep(ext, iconset = 'default', binutilsver = '2.32', gccver = '9.1.0', 
 			} catch(err) {
 				sh "rm -rf ${env.WORKSPACE}/*"
 				sh "rm -rf /tmp/work"
+				sh "rm -rf /externalsources/*"
 				slackSend color: "danger", channel: "#jenkins", message: "Build Failed: ${fixed_job_name} #${env.BUILD_NUMBER} Target: ${ext}${sfx} GCC: ${gccver} (<${env.BUILD_URL}|Open>)"
 				currentBuild.result = 'FAILURE'
 				notify('Build failed')
@@ -139,7 +140,7 @@ node('master') {
 		},
 		'Build Vampire version - GCC 6.5.0 - Binutils 2.32': {
 			node {
-				buildStep('amiga-m68k', 'GorillaSmall', '2.32', '6.5.0', true, 'includes linklibs contrib-setup-dirs contrib-installerlg contrib-aminet contrib-networking', '--with-aros-prefs=classic ', '-vampire') // --with-cpu=68040 // Disable 040 for Vampire build for now
+				buildStep('amiga-m68k', 'GorillaSmall', '2.32', '6.5.0', true, 'contrib-installerlg contrib', '--with-aros-prefs=classic ', '-vampire') // --with-cpu=68040 // Disable 040 for Vampire build for now
 			}
 		},
 		'Build Linux Hosted x86_64 version - GCC 9.1.0 - Binutils 2.32': {
