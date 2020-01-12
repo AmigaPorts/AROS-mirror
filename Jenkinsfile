@@ -133,11 +133,16 @@ node('master') {
 	def fixed_job_name = env.JOB_NAME.replace('%2F','/')
 	slackSend color: "good", channel: "#jenkins", message: "Build Started: ${fixed_job_name} #${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
 	parallel (
-		'Build Amiga 68k version - GCC 6.5.0 - Binutils 2.32': {
+		'Build Amiga 68000 version - GCC 6.5.0 - Binutils 2.32': {
 			node {
 				buildStep('amiga-m68k', 'GorillaSmall', '2.32', '6.5.0', true, 'contrib-installerlg', '--with-aros-prefs=classic')
 			}
 		},
+		'Build Amiga 68020 version - GCC 10 - Binutils 2.32': {
+			node {
+				buildStep('amiga-m68k', 'GorillaSmall', '2.32', '10-20200110', true, 'contrib-installerlg', '--with-aros-prefs=classic --with-cpu=68020','-68020')
+			}
+		}, 
 		'Build Vampire version - GCC 6.5.0 - Binutils 2.32': {
 			node {
 				buildStep('amiga-m68k', 'GorillaSmall', '2.32', '6.5.0', true, 'contrib-installerlg contrib', '--with-aros-prefs=classic ', '-vampire') // --with-cpu=68040 // Disable 040 for Vampire build for now
