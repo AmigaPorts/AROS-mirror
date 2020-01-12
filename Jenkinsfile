@@ -145,7 +145,7 @@ node('master') {
 		}, 
 		'Build Vampire version - GCC 6.5.0 - Binutils 2.32': {
 			node {
-				buildStep('amiga-m68k', 'GorillaSmall', '2.32', '6.5.0', true, 'contrib-installerlg contrib', '--with-aros-prefs=classic ', '-vampire') // --with-cpu=68040 // Disable 040 for Vampire build for now
+				buildStep('amiga-m68k', 'GorillaSmall', '2.32', '6.5.0', true, 'contrib', '--with-aros-prefs=classic ', '-vampire') // --with-cpu=68040 // Disable 040 for Vampire build for now
 			}
 		}
 		/*,
