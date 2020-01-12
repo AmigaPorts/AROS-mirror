@@ -147,12 +147,13 @@ node('master') {
 			node {
 				buildStep('amiga-m68k', 'GorillaSmall', '2.32', '6.5.0', true, 'contrib-installerlg contrib', '--with-aros-prefs=classic ', '-vampire') // --with-cpu=68040 // Disable 040 for Vampire build for now
 			}
-		},
+		}
+		/*,
 		'Build Linux Hosted x86_64 version - GCC 9.1.0 - Binutils 2.32': {
 			node {
 				buildStep('linux-x86_64', 'GorillaSmall', '2.32', '9.1.0', false, 'contrib-installerlg')
 			}
-		}
+		}*/
 	)
 
 	stage("Publishing") {
