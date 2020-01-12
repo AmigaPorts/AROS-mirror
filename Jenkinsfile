@@ -173,7 +173,7 @@ node('master') {
 		}
 		
 		try {
-			unstash "linux-x86_64-9.1.0-2.32"
+			unstash "amiga-m68k-68020-10-20200110-2.32"
 		} catch(err) {
 			notify('Stash not found')
 		}
