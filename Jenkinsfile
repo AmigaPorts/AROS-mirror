@@ -138,16 +138,26 @@ node('master') {
 				buildStep('amiga-m68k', 'GorillaSmall', '2.32', '6.5.0', true, 'contrib-installerlg', '--with-aros-prefs=classic')
 			}
 		},
-		'Build Amiga 68020 version - GCC 10 - Binutils 2.32': {
-			node {
-				buildStep('amiga-m68k', 'GorillaSmall', '2.32', '10-20200110', true, 'contrib-installerlg', '--with-aros-prefs=classic --with-cpu=68020','-68020')
-			}
-		}, 
 		'Build Vampire version - GCC 6.5.0 - Binutils 2.32': {
 			node {
 				buildStep('amiga-m68k', 'GorillaSmall', '2.32', '6.5.0', true, 'contrib', '--with-aros-prefs=classic ', '-vampire') // --with-cpu=68040 // Disable 040 for Vampire build for now
 			}
-		}
+		},
+		'Build Amiga 68020 version - GCC 10 - Binutils 2.32': {
+			node {
+				buildStep('amiga-m68k', 'GorillaSmall', '2.32', '10-20200110', true, 'contrib-installerlg', '--with-aros-prefs=classic --with-cpu=68020','-68020')
+			}
+		},
+		'Build Amiga 68040 version - GCC 10 - Binutils 2.32': {
+			node {
+				buildStep('amiga-m68k', 'GorillaSmall', '2.32', '10-20200110', true, 'contrib-installerlg', '--with-aros-prefs=classic --with-cpu=68040','-68040')
+			}
+		},
+		'Build Amiga 68060 version - GCC 10 - Binutils 2.32': {
+			node {
+				buildStep('amiga-m68k', 'GorillaSmall', '2.32', '10-20200110', true, 'contrib-installerlg', '--with-aros-prefs=classic --with-cpu=68060','-68060')
+			}
+		},
 		/*,
 		'Build Linux Hosted x86_64 version - GCC 9.1.0 - Binutils 2.32': {
 			node {
@@ -174,6 +184,18 @@ node('master') {
 		
 		try {
 			unstash "amiga-m68k-68020-10-20200110-2.32"
+		} catch(err) {
+			notify('Stash not found')
+		}
+		
+		try {
+			unstash "amiga-m68k-68040-10-20200110-2.32"
+		} catch(err) {
+			notify('Stash not found')
+		}
+		
+		try {
+			unstash "amiga-m68k-68060-10-20200110-2.32"
 		} catch(err) {
 			notify('Stash not found')
 		}
