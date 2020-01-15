@@ -140,12 +140,12 @@ node('master') {
 		},
 		'Build Vampire version - GCC 6.5.0 - Binutils 2.32': {
 			node {
-				buildStep('amiga-m68k', 'Gorilla', '2.32', '6.5.0', true, 'contrib-gnu contrib-installerlg', '--with-aros-prefs=classic --with-cpu=68020', '-vampire')
+				buildStep('amiga-m68k', 'Gorilla', '2.32', '6.5.0', true, 'contrib-installerlg', '--with-aros-prefs=classic', '-vampire')
 			}
 		},
 		'Build Amiga 68020 version - GCC 10 - Binutils 2.32': {
 			node {
-				buildStep('amiga-m68k', 'Gorilla', '2.32', '10-20200110', true, 'contrib-gnu contrib-installerlg', '--with-aros-prefs=classic --with-cpu=68020','-vampire')
+				buildStep('amiga-m68k', 'Gorilla', '2.32', '10-20200110', true, 'contrib-installerlg', '--with-aros-prefs=classic --with-cpu=68020','-vampire')
 			}
 		},
 		'Build Amiga 68040 version - GCC 10 - Binutils 2.32': {
