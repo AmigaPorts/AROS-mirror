@@ -216,7 +216,7 @@ node('master') {
 			sh "scp publishing/deploy/BUILDTIME $DEPLOYHOST:~/public_html/downloads/nightly/aros/"
 
 			slackSend color: "good", channel: "#aros", message: "New ${fixed_job_name} build #${env.BUILD_NUMBER} to web (<https://dl.amigadev.com/${deploy_url}|https://dl.amigadev.com/${deploy_url}>)"
-			ircNotify targets: "#aros_caffeine", customMessage: "New ${fixed_job_name} build #${env.BUILD_NUMBER} to web (<https://dl.amigadev.com/${deploy_url}|https://dl.amigadev.com/${deploy_url}>)"
+			ircNotify targets: "#aros_caffeine", customMessage: "New ${fixed_job_name} build #${env.BUILD_NUMBER} to web: https://dl.amigadev.com/${deploy_url}"
 		} else if (env.BRANCH_NAME.equals('ABI_V1_experimental')) {
 			def deploy_url = sh (
 				script: 'echo "nightly/aros-experimental/`date +\'%Y\'`/`date +\'%m\'`/`date +\'%d\'`/"',
@@ -228,7 +228,7 @@ node('master') {
 			sh "scp publishing/deploy/BUILDTIME $DEPLOYHOST:~/public_html/downloads/nightly/aros-experimental/"
 
 			slackSend color: "good", channel: "#jenkins", message: "Deploying ${fixed_job_name} #${env.BUILD_NUMBER} to web (<https://dl.amigadev.com/${deploy_url}|https://dl.amigadev.com/${deploy_url}>)"
-			ircNotify targets: "#aros_caffeine", customMessage: "New ${fixed_job_name} build #${env.BUILD_NUMBER} to web (<https://dl.amigadev.com/${deploy_url}|https://dl.amigadev.com/${deploy_url}>)"
+			ircNotify targets: "#aros_caffeine", customMessage: "New ${fixed_job_name} build #${env.BUILD_NUMBER} to web: https://dl.amigadev.com/${deploy_url}"
 		}
 	}
 }
