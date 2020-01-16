@@ -145,12 +145,12 @@ node('master') {
 		},
 		'Build Amiga 68020 version - GCC 10 - Binutils 2.32': {
 			node {
-				buildStep('amiga-m68k', 'Gorilla', '2.32', '10-20200110', true, 'contrib-installerlg', '--with-aros-prefs=classic --with-cpu=68020','-vampire')
+				buildStep('amiga-m68k', 'Gorilla', '2.32', '10-20200110', true, 'contrib-installerlg', '--with-aros-prefs=classic --with-cpu=68020','-68020')
 			}
 		},
-		'Build Amiga 68040 version - GCC 10 - Binutils 2.32': {
+		'Build Amiga 68020 HF version - GCC 10 - Binutils 2.32': {
 			node {
-				buildStep('amiga-m68k', 'Gorilla', '2.32', '10-20200110', true, 'contrib-installerlg', '--with-aros-prefs=classic --with-cpu=68040','-68040')
+				buildStep('amiga-m68k', 'Gorilla', '2.32', '10-20200110', true, 'contrib-installerlg', '--with-aros-prefs=classic --with-cpu=68020 --with-optimization="-O2 -mhard-float"','-68020-O2-hard-float')
 			}
 		},
 		'Build Amiga 68060 version - GCC 10 - Binutils 2.32': {
@@ -183,13 +183,13 @@ node('master') {
 		}
 		
 		try {
-			unstash "amiga-m68k-vampire-10-20200110-2.32"
+			unstash "amiga-m68k-68020-10-20200110-2.32"
 		} catch(err) {
 			notify('Stash not found')
 		}
 		
 		try {
-			unstash "amiga-m68k-68040-10-20200110-2.32"
+			unstash "amiga-m68k-68020-O2-hard-float-10-20200110-2.32"
 		} catch(err) {
 			notify('Stash not found')
 		}
