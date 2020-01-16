@@ -38,7 +38,7 @@ def killall_jobs() {
 	echo "Done killing"
 }
 
-def buildStep(ext, iconset = 'default', binutilsver = '2.32', gccver = '9.1.0', nativetarget = true, contrib = 'contrib', configureextras = '', sfx = '') {
+def buildStep(ext, iconset = 'default', binutilsver = '2.32', gccver = '9.1.0', nativetarget = true, contrib = 'contrib', configureextras = '', sfx = '', buildtype = 'nightly') {
 	def fixed_job_name = env.JOB_NAME.replace('%2F','/')
 	def commondir = env.WORKSPACE + '/../' + env.JOB_NAME.replace('%2F','/') + '/'
 
@@ -67,7 +67,7 @@ def buildStep(ext, iconset = 'default', binutilsver = '2.32', gccver = '9.1.0', 
 
 				freshUpRoot(ext, binutilsver, gccver, sfx)
 
-				sh "cd /tmp/work && ${env.WORKSPACE}/AROS/configure --target=${ext} ${configureextras} --enable-ccache --with-iconset=${iconset} --enable-build-type=nightly --with-serial-debug --with-binutils-version=${binutilsver} --with-gcc-version=${gccver} --with-aros-toolchain-install=/tools --with-portssources=/externalsources"
+				sh "cd /tmp/work && ${env.WORKSPACE}/AROS/configure --target=${ext} ${configureextras} --enable-ccache --with-iconset=${iconset} --enable-build-type=${buildtype} --with-binutils-version=${binutilsver} --with-gcc-version=${gccver} --with-aros-toolchain-install=/tools --with-portssources=/externalsources"
 
 				sh "cd /tmp/work && make -j8"
 
@@ -135,7 +135,7 @@ node('master') {
 	parallel (
 		'Build Amiga 68000 version - GCC 6.5.0 - Binutils 2.32': {
 			node {
-				buildStep('amiga-m68k', 'Gorilla', '2.32', '6.5.0', true, 'contrib-installerlg', '--with-aros-prefs=classic')
+				buildStep('amiga-m68k', 'Gorilla', '2.32', '6.5.0', true, 'contrib-installerlg', '--with-aros-prefs=classic --with-serial-debug ')
 			}
 		},
 		'Build Vampire version - GCC 6.5.0 - Binutils 2.32': {
@@ -150,7 +150,7 @@ node('master') {
 		},
 		'Build Amiga 68020 HF version - GCC 10 - Binutils 2.32': {
 			node {
-				buildStep('amiga-m68k', 'Gorilla', '2.32', '10-20200110', true, 'contrib-installerlg', '--with-aros-prefs=classic --with-cpu=68040 --with-optimization="-O2 -mhard-float"','-68040-O2-hard-float')
+				buildStep('amiga-m68k', 'Gorilla', '2.32', '10-20200110', true, 'contrib-installerlg', '--with-aros-prefs=classic --with-cpu=68040 --with-optimization="-O2 -mhard-float"','-68040-O2-hard-float', 'release')
 			}
 		},
 		'Build Amiga 68060 version - GCC 10 - Binutils 2.32': {
