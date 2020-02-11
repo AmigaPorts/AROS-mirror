@@ -135,7 +135,7 @@ node('master') {
 	parallel (
 		'Build Amiga 68000 version - GCC 6.5.0 - Binutils 2.32': {
 			node {
-				buildStep('amiga-m68k', 'Gorilla', '2.32', '6.5.0', true, 'contrib-installerlg', '--with-aros-prefs=classic --with-serial-debug')
+				buildStep('amiga-m68k', 'Gorilla', '2.32', '6.5.0', true, 'contrib', '--with-aros-prefs=classic --with-serial-debug')
 			}
 		},/*
 		'Build Vampire version - GCC 6.5.0 - Binutils 2.32': {
@@ -145,17 +145,17 @@ node('master') {
 		},*/
 		'Build Amiga 68020 version - GCC 10 - Binutils 2.32': {
 			node {
-				buildStep('amiga-m68k', 'Gorilla', '2.32', '10-20200110', true, 'contrib-installerlg', '--with-aros-prefs=classic --with-cpu=68020','-68020')
+				buildStep('amiga-m68k', 'Gorilla', '2.32', '10-20200110', true, 'contrib', '--with-aros-prefs=classic --with-cpu=68020','-68020')
 			}
 		},
 		'Build Amiga 68040 version - GCC 10 - Binutils 2.32': {
 			node {
-				buildStep('amiga-m68k', 'Gorilla', '2.32', '10-20200110', true, 'contrib-installerlg', '--with-aros-prefs=classic --with-cpu=68040','-68040')
+				buildStep('amiga-m68k', 'Gorilla', '2.32', '10-20200110', true, 'contrib', '--with-aros-prefs=classic --with-cpu=68040','-68040')
 			}
 		},
 		'Build Amiga 68060 version - GCC 10 - Binutils 2.32': {
 			node {
-				buildStep('amiga-m68k', 'Gorilla', '2.32', '10-20200110', true, 'contrib-installerlg', '--with-aros-prefs=classic --with-cpu=68060','-68060')
+				buildStep('amiga-m68k', 'Gorilla', '2.32', '10-20200110', true, 'contrib', '--with-aros-prefs=classic --with-cpu=68060','-68060')
 			}
 		},
 		/*,
