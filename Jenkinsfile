@@ -69,15 +69,15 @@ def buildStep(ext, iconset = 'default', binutilsver = '2.32', gccver = '9.1.0', 
 
 				sh "cd /tmp/work && ${env.WORKSPACE}/AROS/configure --target=${ext} ${configureextras} --enable-ccache --with-iconset=${iconset} --enable-build-type=${buildtype} --with-binutils-version=${binutilsver} --with-gcc-version=${gccver} --with-aros-toolchain-install=/tools --with-portssources=/externalsources"
 
-				sh "cd /tmp/work && make -j8"
+				sh "cd /tmp/work && make -j$(getconf _NPROCESSORS_ONLN)"
 
 				if (!nativetarget) {
-					sh "cd /tmp/work && make -j8 default-x11keymaptable"
+					sh "cd /tmp/work && make -j$(getconf _NPROCESSORS_ONLN) default-x11keymaptable"
 				}
 
 				postCoreBuild(ext)
 
-				sh "cd /tmp/work && make -j8 ${contrib}"
+				sh "cd /tmp/work && make -j$(getconf _NPROCESSORS_ONLN) ${contrib}"
 
 				sh "cd /tmp/work && make distfiles"
 
@@ -143,19 +143,19 @@ node('master') {
 				buildStep('amiga-m68k', 'Gorilla', '2.32', '6.5.0', true, 'contrib-installerlg', '--with-aros-prefs=classic', '-vampire')
 			}
 		},*/
-		'Build Amiga 68020 version - GCC 10 - Binutils 2.32': {
+		'Build Amiga 68020 version - GCC 9.1.0 - Binutils 2.32': {
 			node {
-				buildStep('amiga-m68k', 'Gorilla', '2.32', '10-20200110', true, 'contrib', '--with-aros-prefs=classic --with-cpu=68020','-68020')
+				buildStep('amiga-m68k', 'Gorilla', '2.32', '9.1.0', true, 'contrib', '--with-aros-prefs=classic --with-cpu=68020','-68020')
 			}
 		},
-		'Build Amiga 68040 version - GCC 10 - Binutils 2.32': {
+		'Build Amiga 68040 version - GCC 9.1.0 - Binutils 2.32': {
 			node {
-				buildStep('amiga-m68k', 'Gorilla', '2.32', '10-20200110', true, 'contrib', '--with-aros-prefs=classic --with-cpu=68040','-68040')
+				buildStep('amiga-m68k', 'Gorilla', '2.32', '9.1.0', true, 'contrib', '--with-aros-prefs=classic --with-cpu=68040','-68040')
 			}
 		},
-		'Build Amiga 68060 version - GCC 10 - Binutils 2.32': {
+		'Build Amiga 68060 version - GCC 9.1.0 - Binutils 2.32': {
 			node {
-				buildStep('amiga-m68k', 'Gorilla', '2.32', '10-20200110', true, 'contrib', '--with-aros-prefs=classic --with-cpu=68060','-68060')
+				buildStep('amiga-m68k', 'Gorilla', '2.32', '9.1.0', true, 'contrib', '--with-aros-prefs=classic --with-cpu=68060','-68060')
 			}
 		},
 		/*,
@@ -183,19 +183,19 @@ node('master') {
 		}
 		
 		try {
-			unstash "amiga-m68k-68020-10-20200110-2.32"
+			unstash "amiga-m68k-68020-9.1.0-2.32"
 		} catch(err) {
 			notify('Stash not found')
 		}
 		
 		try {
-			unstash "amiga-m68k-68040-10-20200110-2.32"
+			unstash "amiga-m68k-68040-9.1.0-2.32"
 		} catch(err) {
 			notify('Stash not found')
 		}
 		
 		try {
-			unstash "amiga-m68k-68060-10-20200110-2.32"
+			unstash "amiga-m68k-68060-9.1.0-2.32"
 		} catch(err) {
 			notify('Stash not found')
 		}
