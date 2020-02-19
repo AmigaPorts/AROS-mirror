@@ -69,15 +69,15 @@ def buildStep(ext, iconset = 'default', binutilsver = '2.32', gccver = '9.1.0', 
 
 				sh "cd /tmp/work && ${env.WORKSPACE}/AROS/configure --target=${ext} ${configureextras} --enable-ccache --with-iconset=${iconset} --enable-build-type=${buildtype} --with-binutils-version=${binutilsver} --with-gcc-version=${gccver} --with-aros-toolchain-install=/tools --with-portssources=/externalsources"
 
-				sh "cd /tmp/work && make -j$(getconf _NPROCESSORS_ONLN)"
+				sh "cd /tmp/work && make -j\$(getconf _NPROCESSORS_ONLN)"
 
 				if (!nativetarget) {
-					sh "cd /tmp/work && make -j$(getconf _NPROCESSORS_ONLN) default-x11keymaptable"
+					sh "cd /tmp/work && make -j\$(getconf _NPROCESSORS_ONLN) default-x11keymaptable"
 				}
 
 				postCoreBuild(ext)
 
-				sh "cd /tmp/work && make -j$(getconf _NPROCESSORS_ONLN) ${contrib}"
+				sh "cd /tmp/work && make -j\$(getconf _NPROCESSORS_ONLN) ${contrib}"
 
 				sh "cd /tmp/work && make distfiles"
 
